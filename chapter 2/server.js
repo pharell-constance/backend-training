@@ -9,6 +9,9 @@ let data = {
 
 }
 
+//Middleware
+app.use(express.json())
+
 
 //type 1 - website endpoints (pour renvoyer du html arrive typiquement quand un utilisateur entre une url dans le navigateur)
 app.get('/', (req, res) => {
@@ -31,11 +34,15 @@ app.get('/dashboard',(req, res)=>{
 
 app.get('/api/data', (req, res)=> {
     console.log("celui là est pour les data");
-    res.send(data)
+    res.send(data);
 })
 
 app.post('/api/data', (req, res) => {
-    const newEntry = req.body
+    //créer un utilisateur (ex: sign up)
+    //l'utilisateur clique le bouton sign up après avoir entré ses informations
+    const newEntry = req.body;
+    console.log(newEntry)
+    res.sendStatus(201)
 })
 
 app.listen(PORT, () => console.log(`server has started on: ${PORT}`));
