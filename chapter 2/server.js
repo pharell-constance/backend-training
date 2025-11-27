@@ -4,10 +4,7 @@ const express = require('express');
 const app = express();
 const PORT = 8383;
 
-let data = {
-    name:'Pharell',
-
-}
+let data = ['pharell']
 
 //Middleware
 app.use(express.json())
@@ -42,6 +39,7 @@ app.post('/api/data', (req, res) => {
     //l'utilisateur clique le bouton sign up après avoir entré ses informations
     const newEntry = req.body;
     console.log(newEntry)
+    data.push(newEntry.name)
     res.sendStatus(201)
 })
 

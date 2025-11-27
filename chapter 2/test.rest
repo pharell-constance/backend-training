@@ -15,5 +15,5 @@ POST http://localhost:8383/api/data
 content-type: application/json
 
 {
-    "name": "Pharell"
+    "name": "Pharell 2"
 }
