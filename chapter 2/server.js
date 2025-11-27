@@ -39,8 +39,15 @@ app.post('/api/data', (req, res) => {
     //l'utilisateur clique le bouton sign up après avoir entré ses informations
     const newEntry = req.body;
     console.log(newEntry)
+    //ajouter un utilisateur
     data.push(newEntry.name)
     res.sendStatus(201)
+})
+
+app.delete('/api/data', ()=>{
+    data.pop();
+    console.log("dernier element de l'array supprimé")
+    res.sendStatus(203)
 })
 
 app.listen(PORT, () => console.log(`server has started on: ${PORT}`));
