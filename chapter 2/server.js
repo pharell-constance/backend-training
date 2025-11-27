@@ -12,18 +12,25 @@ app.use(express.json())
 
 //type 1 - website endpoints (pour renvoyer du html arrive typiquement quand un utilisateur entre une url dans le navigateur)
 app.get('/', (req, res) => {
+    console.log('user requested the home page website')
     res.send(`
         <body style="background:pink; color:blue">
             <h1>DATA</h1>
             <p>${JSON.stringify(data)}</p>
-        </body>`
+            <a href="/dashboard">Dashboard</a>
+        </body>
+        <script !src="">console.log('this is my script')</script>`
     );
 });
 
-app.get('/dashboard',(req, res)=>{
+app.get('/dashboard', (req, res) => {
     console.log("l'endpoint du dashboard marche!!!");
-    res.send('<h1>dashboard</h1>');
-})
+    res.send(`
+        <body>
+            <h1>dashboard</h1>
+            <a href="/">Go to Home</a>
+        </body>`);
+});
 
 //type 2 - api endpoints
 
