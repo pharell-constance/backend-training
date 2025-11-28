@@ -38,7 +38,7 @@ app.get('/dashboard', (req, res) => {
 
 app.get('/api/data', (req, res)=> {
     console.log("celui là est pour les data");
-    res.send(data);
+    res.status(599).send(data);
 })
 
 app.post('/api/data', (req, res) => {
